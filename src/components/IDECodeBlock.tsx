@@ -1,7 +1,7 @@
-// Async Server Component — runs on the server, zero client JS.
-// Three-column gutter: [Line Numbers] | [Purple accent line] | [Code]
+// Async Server Component — tokenizes both code strings on the server,
+// passes serialized plain-object tokens to IDEWindow (client).
 import { codeToTokens, type ThemedToken } from "shiki";
-import { Fragment, type CSSProperties } from "react";
+import IDEWindow, { type SerToken } from "./IDEWindow";
 
 // Custom vibrant theme — Tokyo Night-inspired with boosted saturation.
 // Uses the same TextMate scopes as VS Code so every token maps precisely.
@@ -70,7 +70,7 @@ const VIBRANT_THEME: any = {
   ],
 };
 
-const CODE = `class Shiin {
+const PROFILE_CODE = `class Shiin {
   // I build, because I can.
   // My skill set is continuously expanding.
 
@@ -104,134 +104,70 @@ const CODE = `class Shiin {
   }
 }`;
 
-export default async function IDECodeBlock() {
-  const { tokens } = await codeToTokens(CODE, {
-    lang: "javascript",
-    theme: VIBRANT_THEME,
-  });
+const CREDENTIALS_CODE = `// Credentials.ts — extends the core profile
+class Shiin extends Profile {
 
-  return (
-    <div className="overflow-x-auto scrollbar-none">
-      {/* min-w-max so every row stretches to the widest line — ensures full-width hover */}
-      <div
-        className="min-w-max"
-        style={{
-          fontFamily: "'JetBrains Mono', 'Fira Code', 'Roboto Mono', monospace",
-          fontSize: "15px",
-          lineHeight: "1.7",
-          fontVariantLigatures: "normal",
-          fontFeatureSettings: '"liga" 1, "calt" 1',
-        }}
-      >
-        {tokens.map((lineTokens, lineIdx) => (
-          <CodeLine
-            key={lineIdx}
-            lineNumber={lineIdx + 1}
-            tokens={lineTokens}
-          />
-        ))}
-      </div>
-    </div>
+  certifications() {
+    return [
+      // Networking & Infrastructure
+      { issuer: 'Cisco Networking Academy',
+        title:  'Introduction to Networks',
+        year:    2023 },
+      { issuer: 'Cisco Networking Academy',
+        title:  'Network Addressing & Troubleshooting',
+        year:    2023 },
+
+      // Development & Design
+      { issuer: 'freeCodeCamp',
+        title:  'Responsive Web Design',
+        year:    2022 },
+      { issuer: 'Google',
+        title:  'Foundations of UX Design',
+        year:    2023 },
+    ]
+  }
+
+  achievements() {
+    return [
+      // Academic Excellence
+      { title:  "CCT Dean's Lister",
+        org:    'STI College',
+        period: '2022–2025' },
+
+      // Research & Authorship
+      { title:  'Lead Author — GSO-RMS Thesis',
+        org:    'STI College',
+        year:    2024 },
+
+      // Entrepreneurship
+      { title:  'Co-founder — TimeLens VR',
+        award:  '4× Best Startup Award',
+        period: '2022–now' },▋
+    ]
+  }
+}`;
+
+function serialize(lines: ThemedToken[][]): SerToken[][] {
+  return lines.map((line) =>
+    line.map((t) => ({
+      content: t.content,
+      color: t.color,
+      italic: !!(t.fontStyle && t.fontStyle & 1),
+      bold: !!(t.fontStyle && t.fontStyle & 2),
+    }))
   );
 }
 
-function CodeLine({
-  lineNumber,
-  tokens,
-}: {
-  lineNumber: number;
-  tokens: ThemedToken[];
-}) {
-  const fullText = tokens.map((t) => t.content).join("");
-  const leadingSpaces = fullText.match(/^( *)/)?.[1] ?? "";
-  const indentDepth = Math.floor(leadingSpaces.length / 2);
-  let spacesLeft = leadingSpaces.length;
+export default async function IDECodeBlock() {
+  const [profile, credentials] = await Promise.all([
+    codeToTokens(PROFILE_CODE,      { lang: "javascript", theme: VIBRANT_THEME }),
+    codeToTokens(CREDENTIALS_CODE,  { lang: "typescript", theme: VIBRANT_THEME }),
+  ]);
 
   return (
-    // Pure CSS hover — no JS listeners, no re-renders, scroll stays smooth
-    <div className="group flex items-stretch w-full hover:bg-[#ffffff05] transition-colors duration-150">
-
-      {/* ── Col 1 · Line number — very muted so the code "pops" ── */}
-      <span
-        aria-hidden="true"
-        className="select-none flex-shrink-0 inline-flex items-center justify-end text-[12px]"
-        style={{
-          minWidth: "2.5rem",
-          paddingRight: "0.75rem",
-          color: "rgba(255,255,255,0.08)",
-          fontVariantNumeric: "tabular-nums",
-        }}
-      >
-        {String(lineNumber).padStart(2, "0")}
-      </span>
-
-      {/* ── Col 2 · Purple accent line ────────────────────────── */}
-      <div
-        aria-hidden="true"
-        className="flex-shrink-0 self-stretch"
-        style={{ width: "1px", background: "rgba(89, 24, 223, 0.5)" }}
-      />
-
-      {/* ── Col 3 · Code content — subtle glow gives OLED depth ── */}
-      <span
-        className="whitespace-pre inline-flex items-center"
-        style={{
-          paddingLeft: "1.25rem",
-          paddingRight: "3rem",
-          textShadow: "0 0 2px rgba(255,255,255,0.07)",
-        }}
-      >
-        {/* Indentation dots — near-invisible, non-competing */}
-        {indentDepth > 0 && (
-          <span aria-hidden="true" className="select-none pointer-events-none inline-flex">
-            {Array.from({ length: indentDepth }, (_, i) => (
-              <span
-                key={i}
-                style={{ display: "inline-block", width: "2ch", color: "rgba(255,255,255,0.06)" }}
-              >
-                {"· "}
-              </span>
-            ))}
-          </span>
-        )}
-
-        {/* Shiki syntax tokens */}
-        {tokens.map((token, i) => {
-          let content = token.content;
-          if (spacesLeft > 0) {
-            const strip = Math.min(spacesLeft, content.length);
-            content = content.slice(strip);
-            spacesLeft -= strip;
-          }
-          if (!content) return null;
-
-          const style: CSSProperties = {};
-          if (token.color) style.color = token.color;
-          if (token.fontStyle) {
-            if (token.fontStyle & 1) style.fontStyle = "italic";
-            if (token.fontStyle & 2) style.fontWeight = "bold";
-            if (token.fontStyle & 4) style.textDecoration = "underline";
-          }
-
-          // Blinking | cursor replacing the ▋ marker
-          if (content.includes("▋")) {
-            const [before, after] = content.split("▋");
-            return (
-              <Fragment key={i}>
-                {before && <span style={style}>{before}</span>}
-                <span className="animate-blink" style={{ color: "#5918df" }}>|</span>
-                {after && <span style={style}>{after}</span>}
-              </Fragment>
-            );
-          }
-
-          return (
-            <span key={i} style={style}>
-              {content}
-            </span>
-          );
-        })}
-      </span>
-    </div>
+    <IDEWindow
+      profileTokens={serialize(profile.tokens)}
+      credentialsTokens={serialize(credentials.tokens)}
+    />
   );
 }
