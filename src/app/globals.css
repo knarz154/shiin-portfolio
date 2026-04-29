@@ -85,7 +85,7 @@ html { scrollbar-width: none; -ms-overflow-style: none; }
 @keyframes loaderProgress { 0% { width: 0%; } 60% { width: 70%; } 100% { width: 100%; } }
 
 /* Timeline */
-.timeline { position: absolute; left: -24px; top: 0; width: 1px; height: 300%; background-color: var(--primary); z-index: 9; }
+.timeline { position: absolute; left: -24px; top: 0; width: 1px; height: 300%; background-color: var(--primary); z-index: 0; pointer-events: none; }
 .timeline.alt { height: 5000%; }
 
 /* Bullet Title */
@@ -93,7 +93,7 @@ html { scrollbar-width: none; -ms-overflow-style: none; }
 .bullet-title::before {
   content: ""; position: absolute; left: -29px; top: 9px;
   width: 9px; height: 9px; background-color: #1b191e;
-  border: 2px solid var(--primary); border-radius: 50%; z-index: 10;
+  border: 2px solid var(--primary); border-radius: 50%; z-index: 20;
 }
 
 /* Block Reveal */
