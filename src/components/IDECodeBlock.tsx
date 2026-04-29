@@ -92,14 +92,27 @@ const PROFILE_CODE = `class Shiin {
   skills() {
     return [
       // frontend
-      'React', 'TypeScript', 'Next.js',
-      'Tailwind CSS', 'Vite', 'HTML/CSS/JS',
+      'React',
+      'TypeScript',
+      'Next.js',
+      'Tailwind CSS',
+      'Vite',
+      'HTML/CSS/JS',
       // backend & mobile
-      'PHP', 'MySQL', 'Node.js', 'Python',
-      'REST APIs', 'React Native', 'Capacitor',
+      'PHP',
+      'MySQL',
+      'Node.js',
+      'Python',
+      'REST APIs',
+      'React Native',
+      'Capacitor',
       // tools & design
-      'Git', 'Figma', 'Photoshop',
-      'UI/UX Design', 'Responsive Design', 'Data Visualization',▋
+      'Git',
+      'Figma',
+      'Photoshop',
+      'UI/UX Design',
+      'Responsive Design',
+      'Data Visualization',▋
     ]
   }
 }`;
@@ -110,39 +123,53 @@ class Shiin extends Profile {
   certifications() {
     return [
       // Networking & Infrastructure
-      { issuer: 'Cisco Networking Academy',
+      {
+        issuer: 'Cisco Networking Academy',
         title:  'Introduction to Networks',
-        year:    2023 },
-      { issuer: 'Cisco Networking Academy',
+        year:   2023,
+      },
+      {
+        issuer: 'Cisco Networking Academy',
         title:  'Network Addressing & Troubleshooting',
-        year:    2023 },
+        year:   2023,
+      },
 
       // Development & Design
-      { issuer: 'freeCodeCamp',
+      {
+        issuer: 'freeCodeCamp',
         title:  'Responsive Web Design',
-        year:    2022 },
-      { issuer: 'Google',
+        year:   2022,
+      },
+      {
+        issuer: 'Google',
         title:  'Foundations of UX Design',
-        year:    2023 },
+        year:   2023,
+      },
     ]
   }
 
   achievements() {
     return [
       // Academic Excellence
-      { title:  "CCT Dean's Lister",
+      {
+        title:  "CCT Dean's Lister",
         org:    'STI College',
-        period: '2022–2025' },
+        period: '2022–2025',
+      },
 
       // Research & Authorship
-      { title:  'Lead Author — GSO-RMS Thesis',
-        org:    'STI College',
-        year:    2024 },
+      {
+        title: 'Lead Author — GSO-RMS Thesis',
+        org:   'STI College',
+        year:  2024,
+      },
 
       // Entrepreneurship
-      { title:  'Co-founder — TimeLens VR',
+      {
+        title:  'Co-founder — TimeLens VR',
         award:  '4× Best Startup Award',
-        period: '2022–now' },▋
+        period: '2022–now',
+      },▋
     ]
   }
 }`;

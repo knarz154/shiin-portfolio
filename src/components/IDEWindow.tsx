@@ -148,9 +148,11 @@ export default function IDEWindow({ profileTokens, credentialsTokens }: IDEWindo
       <div
         className="overflow-hidden rounded-xl"
         style={{
-          background:  "#0d0b14",
-          border:      "1px solid rgba(89,24,223,0.25)",
-          boxShadow:   "0 24px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.04)",
+          background:           "rgba(13, 11, 20, 0.88)",
+          backdropFilter:       "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+          border:               "1px solid rgba(89,24,223,0.28)",
+          boxShadow:            "0 20px 50px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04)",
         }}
       >
         {/* ── Title bar ──────────────────────────────────────────────────── */}

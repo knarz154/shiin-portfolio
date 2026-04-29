@@ -42,15 +42,18 @@ export default function AboutSection({ children }: { children: React.ReactNode }
       />
 
       <div className="container mx-auto px-6 sm:px-12 lg:px-20 relative z-10">
-        <div className="max-w-4xl ml-4 sm:ml-12 lg:ml-20 relative">
+        <div className="max-w-5xl ml-4 sm:ml-12 lg:ml-20 relative">
           <div className="timeline alt" />
-          <small className="bullet-title text-text-muted text-lg font-light mt-8 inline-block">
-            About /&gt;
+          <small className="bullet-title font-mono text-lg mt-8 inline-block">
+            <span className="text-text-muted font-light">&lt;</span>
+            <span className="text-text-light font-semibold">About</span>
+            <span className="text-text-muted font-light"> /&gt;</span>
           </small>
 
-          {/* Code block — lg: pulls left so gutter line aligns with section timeline */}
+          {/* Code block — z-[10] lifts it above the timeline line (z-0) so the
+               line threads visibly behind the glass window */}
           <motion.div
-            className="mt-12 lg:-ml-16"
+            className="mt-12 lg:-ml-16 relative z-[10]"
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ type: "spring", stiffness: 80, damping: 20, mass: 0.8 }}
