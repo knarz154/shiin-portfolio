@@ -9,7 +9,7 @@
 
 ## 1. Background & owner profile
 
-Ken Lawrence E. Narzabal — handle **Shiin** — is a 4th-year BS Computer Science student at **Colegio de la Ciudad de Tayabas (CCT)**, graduating this academic year. He is based in Tayabas City, Quezon, Philippines, and is active in CCT's research society (iSITE) and Dean's-list-tier coursework. His shipped portfolio surface includes seven real software/branding projects spanning React, PHP/MySQL, React Native + Capacitor, and Vite-based TypeScript, plus award-bearing entrepreneurship/VR work (TimeLens VR — 4× Best Startup awards). Existing socials and contact channels are real and live (`kenlawrencenarz@gmail.com`, `github.com/kenlawrencenarz`, `linkedin.com/in/kenlawrencenarzabal`, `0964-990-7780`).
+Ken Lawrence E. Narzabal — handle **Shiin** — is a 4th-year BS Computer Science student at **Colegio de la Ciudad de Tayabas (CCT)**, graduating this academic year. He is based in Tayabas City, Quezon, Philippines, and is active in CCT's research society (iSITE) and Dean's-list-tier coursework. His shipped portfolio surface includes seven real software/branding projects spanning React, PHP/MySQL, React Native + Capacitor, and Vite-based TypeScript, plus award-bearing entrepreneurship/VR work (TimeLens VR — 4× Best Startup awards). Existing socials and contact channels are real and live (`kenlawrencenarz@gmail.com`, `github.com/knarz154`, `instagram.com/k.narz`, `0964-990-7780`).
 
 The repository is **already 70% built** (Next.js 14 App Router, TS strict, Tailwind, Lenis, Framer Motion, Shiki) with all five YASIO-pattern sections rendering real content. This brief therefore plans a **finish + harden** track, not a rebuild.
 

@@ -498,8 +498,8 @@ export default function robots() {
     "addressCountry": "PH"
   },
   "sameAs": [
-    "https://github.com/kenlawrencenarz",
-    "https://linkedin.com/in/kenlawrencenarzabal"
+    "https://github.com/knarz154",
+    "https://www.instagram.com/k.narz/"
   ]
 }
 ```

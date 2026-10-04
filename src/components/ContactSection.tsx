@@ -93,7 +93,7 @@ export default function ContactSection() {
               </a>
 
               <a
-                href="https://github.com/kenlawrencenarz"
+                href="https://github.com/knarz154"
                 className="social-link"
                 target="_blank"
                 rel="noreferrer"
@@ -105,16 +105,15 @@ export default function ContactSection() {
               </a>
 
               <a
-                href="https://linkedin.com/in/kenlawrencenarzabal"
+                href="https://www.instagram.com/k.narz/"
                 className="social-link"
                 target="_blank"
                 rel="noreferrer"
               >
-                <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
-                  <path d="M5 3c0 1.062-.71 1.976-2 1.976C1.785 4.976 1 4.114 1 3.052 1 1.962 1.76.9 3 .9s1.976.91 2 2.1zM1 19V6h4v13H1z" />
-                  <path d="M7 10.444C7 8.9 6.949 7.608 6.898 6.493h3.594l.178 1.723h.076c.506-.811 1.746-2 3.822-2 2.532 0 4.432 1.695 4.432 5.342V19h-4v-6.861c0-1.594-.607-2.81-2-2.81-1.062 0-1.594.86-1.873 1.569-.102.254-.127.608-.127.963V19H7v-8.556z" />
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                  <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zm8.25 2.5a.75.75 0 110 1.5.75.75 0 010-1.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z" />
                 </svg>
-                LinkedIn
+                Instagram
               </a>
             </motion.div>
 

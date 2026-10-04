@@ -96,7 +96,7 @@ Real, ground-truth content already in source (do **not** ask Ken for these):
 
 - **Identity:** Ken Lawrence E. Narzabal / Shiin — Tayabas City, Quezon
 - **Email:** `kenlawrencenarz@gmail.com` · **Phone:** `0964-990-7780`
-- **GitHub:** `https://github.com/kenlawrencenarz` · **LinkedIn:** `https://linkedin.com/in/kenlawrencenarzabal`
+- **GitHub:** `https://github.com/knarz154` · **Instagram:** `https://www.instagram.com/k.narz/`
 - **Projects (7 with screenshots in `public/works/`):** CCT Tayabas, EXCELLENT Platform, TASDEC, TWIMS, TimeLens VR, GSO-RMS, NegosyoNexus
 - **Awards/cred signals:** 4× Best Startup (TimeLens VR), VizWiz 2nd Place, Dean's Lister AY 2022–2026, iSITE Member
 - **Cert issuers referenced:** Cisco Networking Academy, freeCodeCamp, Google
