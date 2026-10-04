@@ -1,17 +1,14 @@
 "use client";
 
-import dynamic from "next/dynamic";
-
-// These sections access browser APIs during render; ssr: false prevents
-// server-side rendering crashes and hydration mismatches.
-const WorkSection = dynamic(() => import("@/components/WorkSection"), { ssr: false });
-const LabSection  = dynamic(() => import("@/components/LabSection"),  { ssr: false });
+import WorkSection from "@/components/WorkSection";
+import LabSection from "@/components/LabSection";
+import ClientOnly from "./ClientOnly";
 
 export default function DynamicWorkLabSections() {
   return (
-    <>
+    <ClientOnly>
       <WorkSection />
       <LabSection />
-    </>
+    </ClientOnly>
   );
 }

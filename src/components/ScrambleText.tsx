@@ -83,6 +83,8 @@ export default function ScrambleText({
           }
         }
 
+        if (!el) return;
+
         el.textContent = result;
 
         if (progress < 1) {
@@ -100,6 +102,7 @@ export default function ScrambleText({
     }
 
     // Show first word immediately, then begin cycling after the first hold
+    if (!el) return;
     el.textContent = words[0];
     holdTimer = setTimeout(() => {
       currentIdx = 1 % words.length;

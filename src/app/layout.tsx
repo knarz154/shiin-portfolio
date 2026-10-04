@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import LiquidCursor from "@/components/LiquidCursor";
+import ClientOnly from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   title: "<Shiin/> Portfolio | Full-Stack Developer & Thesis Developer",
@@ -41,7 +42,9 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <SmoothScrollProvider />
-        <LiquidCursor />
+        <ClientOnly>
+          <LiquidCursor />
+        </ClientOnly>
         {children}
       </body>
     </html>
