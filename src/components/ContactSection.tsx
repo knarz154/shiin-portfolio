@@ -115,6 +115,18 @@ export default function ContactSection() {
                 </svg>
                 Instagram
               </a>
+
+              <a
+                href="https://ph.jobstreet.com/profiles/kenlawrence-narzabal-fTcX7l2yrw"
+                className="social-link"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                  <path d="M10 2h4a2 2 0 012 2v2h4a2 2 0 012 2v11a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2h4V4a2 2 0 012-2zm4 4V4h-4v2h4z" />
+                </svg>
+                JobStreet
+              </a>
             </motion.div>
 
             {/* CTA Button */}
