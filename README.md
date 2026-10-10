@@ -40,5 +40,6 @@ Architectural decisions live in [`docs/decisions/`](docs/decisions/):
 - [ADR-006 — Loader: `INIT()`](docs/decisions/006-loader-init.md)
 - [ADR-007 — Palette accent (option A)](docs/decisions/007-palette-accent-option-a.md)
 - [ADR-008 — Analytics: Vercel](docs/decisions/008-analytics-vercel.md)
+- [ADR-009 — Next.js: defer major upgrade](docs/decisions/009-defer-nextjs-major-upgrade.md)
 
 Planning artifacts (brief, PRD, spec, architecture, PO validation, sharded stories) live in [`docs/`](docs/).
